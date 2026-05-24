@@ -1,7 +1,8 @@
-/* CLEAR × TCE-ES — Diagnóstico iterativo de sistemas de M&A
+/* CLEAR Lab — Diagnóstico iterativo de sistemas de M&A
    ---
    Persistência em localStorage, renderização do resultado e
    geração de pontos de atenção via regras simples baseadas no Guia.
+   Inclui: abas (checklist/diagnóstico) + sincronização do botão imprimir.
 */
 
 (function () {
@@ -55,6 +56,7 @@
 
   // ---------- Inicialização ----------
   document.addEventListener('DOMContentLoaded', () => {
+    initTabs();
     initOptions();
     initNotes();
     initGeneralNotes();
@@ -62,6 +64,36 @@
     restoreUI();
     updateProgress();
   });
+
+  // ---------- Abas ----------
+  function initTabs() {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        tabs.forEach(t => t.classList.toggle('is-active', t === tab));
+        contents.forEach(c => c.classList.toggle('is-active', c.id === 'tab-' + target));
+        // scroll suave para o topo das abas
+        const tabsWrap = document.querySelector('.tabs-wrap');
+        if (tabsWrap) {
+          const offset = tabsWrap.getBoundingClientRect().top + window.pageYOffset - 80;
+          if (window.pageYOffset > offset) {
+            window.scrollTo({ top: offset, behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    // Se a URL tiver #etapa-X, mantém Parte A ativa e rola; se for #diagnostico, ativa Parte B.
+    const hash = window.location.hash;
+    if (hash && hash.includes('etapa-')) {
+      // já está na Parte A por padrão
+    } else if (hash === '#diagnostico' || hash === '#tab-diagnostico') {
+      const tab = document.querySelector('.tab[data-tab="diagnostico"]');
+      if (tab) tab.click();
+    }
+  }
 
   function initOptions() {
     document.querySelectorAll('.dq-option').forEach(label => {
@@ -419,7 +451,7 @@
     const lines = [];
     lines.push('# Diagnóstico do meu sistema de M&A');
     lines.push('');
-    lines.push(`*Gerado em ${today} a partir do Checklist FGV CLEAR × TCE-ES.*`);
+    lines.push(`*Gerado em ${today} a partir do Checklist do CLEAR Lab.*`);
     lines.push('');
     lines.push('---');
     lines.push('');
@@ -472,7 +504,7 @@
 
     lines.push('---');
     lines.push('');
-    lines.push('*Checklist para construção de sistemas de M&A — FGV CLEAR × TCE-ES · Convênio nº 00017/2024-4C*');
+    lines.push('*Checklist para construção de sistemas de M&A — CLEAR Lab · FGV EESP*');
     lines.push('');
     lines.push('*Derivado do Guia de construção de sistemas de monitoramento e avaliação de políticas públicas (FGV CLEAR, 2026).*');
 
