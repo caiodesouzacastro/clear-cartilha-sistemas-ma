@@ -1,967 +1,1014 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Checklist para construção de sistemas de M&amp;A subnacionais · CLEAR Lab</title>
-  <meta name="description" content="Instrumento prático derivado do Guia de construção de sistemas de monitoramento e avaliação de políticas públicas (FGV CLEAR, 2026). Para gestores subnacionais identificarem onde seu sistema está e o que ainda precisa ser construído." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como construir um sistema de M&amp;A no meu município? · FGV CLEAR</title>
+<meta name="description" content="Instrumento de apoio à gestão pública. Checklist e diagnóstico de etapas para a construção de sistemas de monitoramento e avaliação em governos subnacionais brasileiros. Derivado do Guia de construção de sistemas de M&A — FGV CLEAR, 2026.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:    #01354A;
+  --navy2:   #012030;
+  --blue:    #0074A3;
+  --blue-l:  #08B0EE;
+  --green:   #98C43B;
+  --green-d: #5C821A;
+  --teal:    #4FAC91;
+  --bg:      #F2F5F4;
+  --bg-card: #FFFFFF;
+  --text:    #0D1E26;
+  --text-m:  #4A6070;
+  --text-l:  #7A94A0;
+  --border:  #D4E2E8;
+  --border-s:#BAD0DA;
+  --ok:      #5C821A;
+  --ok-bg:   #EDF5D8;
+  --mid:     #B07000;
+  --mid-bg:  #FDF2D8;
+  --no:      #A82020;
+  --no-bg:   #FAEAEA;
+  --na:      #6B7A85;
+  --na-bg:   #ECEFF2;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6;}
+a{color:inherit;}
+
+/* HEADER */
+header{background:var(--navy);position:relative;overflow:hidden;}
+header::after{content:'';position:absolute;bottom:-100px;right:-80px;width:340px;height:340px;border-radius:50%;border:1px solid rgba(8,176,238,0.1);pointer-events:none;}
+header::before{content:'';position:absolute;top:-50px;left:35%;width:220px;height:220px;border-radius:50%;border:1px solid rgba(152,196,59,0.09);pointer-events:none;}
+.header-inner{max-width:920px;margin:0 auto;padding:2rem 1.5rem 0;position:relative;z-index:1;}
+.logo-row{display:flex;align-items:center;gap:16px;margin-bottom:1.8rem;}
+.logo-img{height:42px;width:auto;display:block;background:#fff;padding:6px 10px;border-radius:6px;}
+.header-body{padding-bottom:2rem;}
+.header-tag{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue-l);margin-bottom:0.7rem;font-weight:400;}
+header h1{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:300;line-height:1.18;color:#fff;margin-bottom:0.85rem;}
+header h1 em{font-style:italic;color:var(--blue-l);}
+.header-desc{font-size:13.5px;color:rgba(255,255,255,0.5);max-width:620px;line-height:1.7;font-weight:300;}
+
+/* TABS */
+.tabs-bar{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:200;}
+.tabs-inner{max-width:920px;margin:0 auto;padding:0 1.5rem;display:flex;}
+.tab-btn{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,0.4);background:transparent;border:none;border-bottom:2px solid transparent;padding:13px 20px 11px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.tab-btn:hover{color:rgba(255,255,255,0.72);}
+.tab-btn.active{color:var(--blue-l);border-bottom-color:var(--blue-l);font-weight:500;}
+.progress-wrap{height:2px;background:rgba(255,255,255,0.08);}
+.progress-fill{height:100%;background:var(--green);transition:width 0.4s ease;width:0%;}
+
+/* LAYOUT */
+.layout{max-width:920px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ── INTRO ── */
+.intro-hero{margin-bottom:2.5rem;}
+.intro-hero h2{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:300;color:var(--navy);margin-bottom:0.75rem;line-height:1.25;}
+.intro-hero p{font-size:14px;color:var(--text-m);line-height:1.75;max-width:720px;margin-bottom:0.85rem;}
+.intro-hero p strong{color:var(--text);font-weight:500;}
+.intro-hero p em{font-style:italic;}
+
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:2rem 0;}
+.step-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.25rem 1.1rem;}
+.step-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:300;color:var(--border-s);line-height:1;margin-bottom:0.5rem;}
+.step-title{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:0.4rem;}
+.step-desc{font-size:12.5px;color:var(--text-m);line-height:1.55;}
+
+.farol-box{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.5rem;margin:2rem 0;}
+.farol-title{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.07em;}
+.farol-items{display:flex;flex-direction:column;gap:10px;}
+.farol-item{display:flex;align-items:flex-start;gap:12px;}
+.farol-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:3px;}
+.farol-label{font-size:13px;color:var(--text);}
+.farol-label strong{font-weight:500;}
+.farol-label span{color:var(--text-m);}
+
+.section-divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0;}
+
+.tipos-section h2{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;color:var(--navy);margin-bottom:0.5rem;}
+.tipos-section p.lead{font-size:13.5px;color:var(--text-m);line-height:1.7;margin-bottom:1.75rem;max-width:680px;}
+.tipos-section p.lead em{font-style:italic;}
+
+.tipo-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.5rem;margin-bottom:14px;border-left:4px solid var(--border);}
+.tipo-card.et1{border-left-color:var(--teal);}
+.tipo-card.et2{border-left-color:var(--blue);}
+.tipo-card.et3{border-left-color:#2478B0;}
+.tipo-card.et4{border-left-color:var(--green-d);}
+.tipo-card.et5{border-left-color:var(--mid);}
+.tipo-tag{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-l);margin-bottom:6px;}
+.tipo-name{font-size:15px;font-weight:500;color:var(--navy);margin-bottom:8px;}
+.tipo-pergunta{font-size:12px;font-weight:500;color:var(--text-m);margin-bottom:8px;font-style:italic;}
+.tipo-desc{font-size:13px;color:var(--text-m);line-height:1.65;}
+.tipo-desc em{font-style:italic;}
+
+.ref-box{background:var(--navy);border-radius:10px;padding:1.5rem 1.75rem;margin-top:2rem;display:flex;align-items:flex-start;gap:16px;}
+.ref-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px;}
+.ref-text{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.65;}
+.ref-text strong{color:#fff;font-weight:500;display:block;margin-bottom:4px;}
+.ref-text a{color:var(--blue-l);text-decoration:none;}
+.ref-text a:hover{text-decoration:underline;}
+
+.cite-box{background:#FAFCFD;border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;margin-top:1rem;font-size:12.5px;color:var(--text-m);line-height:1.6;}
+.cite-box strong{color:var(--navy);font-weight:500;display:block;margin-bottom:4px;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;}
+.cite-box code{font-family:'Courier New',monospace;background:#EAF1F5;padding:1px 5px;border-radius:3px;font-size:11.5px;color:var(--navy);}
+
+/* ── CHECKLIST/DIAGNÓSTICO ── */
+.checklist-intro{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--blue-l);border-radius:6px;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13px;color:var(--text-m);line-height:1.6;}
+.checklist-intro strong{color:var(--text);font-weight:500;}
+.checklist-intro em{font-style:italic;}
+
+.bloco{margin-bottom:2.5rem;}
+.bloco-header{display:flex;align-items:baseline;gap:14px;margin-bottom:1.2rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border);}
+.bloco-num{font-family:'Fraunces',serif;font-size:2.1rem;font-weight:300;color:var(--border-s);line-height:1;flex-shrink:0;min-width:48px;}
+.bloco-title{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.09em;color:var(--navy);}
+.bloco-subtitle{font-size:12px;color:var(--text-l);margin-top:2px;}
+
+.question{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;margin-bottom:8px;transition:border-color 0.2s;}
+.question.answered{border-color:#A8C8B8;}
+.q-top{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.q-id{font-size:10px;font-weight:500;color:var(--blue);background:#EAF4FA;border:1px solid #C0DCE8;border-radius:4px;padding:2px 7px;flex-shrink:0;margin-top:2px;letter-spacing:0.03em;}
+.q-text{font-size:13.5px;color:var(--text);line-height:1.55;}
+.q-text em{font-style:italic;color:var(--text-m);}
+.q-text strong{font-weight:500;}
+.q-options{display:flex;gap:6px;flex-wrap:wrap;}
+.opt{font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid var(--border-s);background:var(--bg);color:var(--text-m);cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;}
+.opt:hover{border-color:var(--navy);color:var(--navy);}
+.opt.sel-ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok);font-weight:500;}
+.opt.sel-mid{background:var(--mid-bg);color:var(--mid);border-color:var(--mid);font-weight:500;}
+.opt.sel-no{background:var(--no-bg);color:var(--no);border-color:var(--no);font-weight:500;}
+.opt.sel-na{background:var(--na-bg);color:var(--na);border-color:var(--na);font-weight:500;}
+.q-note{margin-top:10px;}
+.q-note textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px 10px;resize:vertical;min-height:34px;line-height:1.55;transition:border-color 0.15s;}
+.q-note textarea:focus{outline:none;border-color:var(--blue-l);background:#fff;}
+.q-note textarea::placeholder{color:var(--text-l);font-style:italic;}
+
+/* RESULTS */
+.results-section{margin-top:3rem;padding-top:2.5rem;border-top:2px solid var(--border);}
+.results-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:0.5rem;}
+.results-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;color:var(--navy);}
+.answered-count{font-size:12px;color:var(--text-l);}
+.results-desc{font-size:13px;color:var(--text-m);margin-bottom:1.5rem;line-height:1.6;max-width:680px;}
+.results-desc em{font-style:italic;}
+
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;margin-bottom:1.75rem;}
+.result-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.2rem;border-top:3px solid var(--border);}
+.result-card.et1{border-top-color:var(--teal);}
+.result-card.et2{border-top-color:var(--blue);}
+.result-card.et3{border-top-color:#2478B0;}
+.result-card.et4{border-top-color:var(--green-d);}
+.result-card.et5{border-top-color:var(--mid);}
+.rc-tipo{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-l);margin-bottom:6px;}
+.rc-name{font-size:13.5px;font-weight:500;color:var(--navy);margin-bottom:14px;line-height:1.25;}
+.rc-bar-bg{height:5px;background:var(--border);border-radius:3px;margin-bottom:9px;overflow:hidden;}
+.rc-bar-fill{height:100%;border-radius:3px;transition:width 0.5s ease;background:var(--blue);}
+.rc-pct{font-size:18px;font-weight:500;color:var(--navy);font-family:'Fraunces',serif;line-height:1;}
+.rc-detail{font-size:11px;color:var(--text-l);margin-top:4px;}
+
+.alerts-area{margin-top:1.5rem;}
+.alerts-area-title{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:400;color:var(--navy);margin-bottom:1rem;}
+.alert{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--blue-l);border-radius:8px;padding:1.1rem 1.4rem;margin-bottom:10px;}
+.alert.crit{border-left-color:var(--no);}
+.alert.warn{border-left-color:var(--mid);}
+.alert.info{border-left-color:var(--blue);}
+.alert.good{border-left-color:var(--ok);}
+.alert-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px;color:var(--text-l);}
+.alert.crit .alert-label{color:var(--no);}
+.alert.warn .alert-label{color:var(--mid);}
+.alert.info .alert-label{color:var(--blue);}
+.alert.good .alert-label{color:var(--ok);}
+.alert h4{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:400;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.alert p{font-size:13px;color:var(--text-m);line-height:1.65;}
+.alert p strong{color:var(--text);font-weight:500;}
+.alert p em{font-style:italic;}
+.alert-ref{margin-top:8px;font-size:11px;color:var(--text-l);font-style:italic;}
+.alerts-empty{background:var(--bg-card);border:1px dashed var(--border);border-radius:8px;padding:1.5rem;text-align:center;color:var(--text-l);font-size:13px;font-style:italic;}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:1.5rem;align-items:center;}
+.btn{font-family:'DM Sans',sans-serif;font-size:13px;padding:9px 20px;border-radius:6px;border:1px solid var(--border-s);background:transparent;color:var(--text-m);cursor:pointer;transition:all 0.15s;display:inline-flex;align-items:center;gap:8px;}
+.btn:hover{border-color:var(--navy);color:var(--navy);}
+.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy);}
+.btn.primary:hover{background:var(--blue);border-color:var(--blue);color:#fff;}
+.btn.danger:hover{border-color:var(--no);color:var(--no);}
+
+.notes-general{margin-top:2rem;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.5rem;}
+.notes-general label{display:block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-l);margin-bottom:0.7rem;}
+.notes-general textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 12px;resize:vertical;min-height:90px;line-height:1.6;}
+.notes-general textarea:focus{outline:none;border-color:var(--blue-l);background:#fff;}
+
+/* CHECKLIST ESTÁTICO (não-interativo) */
+.static-intro{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:6px;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:13px;color:var(--text-m);line-height:1.6;}
+.static-intro strong{color:var(--text);font-weight:500;}
+.static-intro em{font-style:italic;}
+.static-item{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:0.85rem 1.2rem;margin-bottom:6px;display:grid;grid-template-columns:22px 1fr;gap:14px;align-items:start;page-break-inside:avoid;}
+.static-box{width:14px;height:14px;border:1.5px solid var(--text-l);border-radius:3px;margin-top:3px;flex-shrink:0;}
+.static-text{font-size:13.5px;color:var(--text);line-height:1.55;}
+.static-text strong{font-weight:500;}
+.static-text em{font-style:italic;color:var(--text-m);}
+.static-sub{display:block;margin-top:8px;padding-left:12px;border-left:2px solid var(--border);font-size:12.5px;color:var(--text-m);font-style:italic;line-height:1.5;}
+.static-ref{margin-top:14px;font-size:12px;color:var(--text-l);background:var(--bg);border-radius:6px;padding:9px 14px;display:inline-block;}
+.static-ref::before{content:'→ ';color:var(--blue-l);}
+.static-ref strong{color:var(--text);font-weight:500;}
+
+/* FOOTER */
+footer{background:var(--navy2);padding:2rem 1.4rem;}
+.footer-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.footer-logos{display:flex;gap:18px;align-items:center;}
+.footer-logo{height:32px;width:auto;background:#fff;padding:5px 8px;border-radius:4px;opacity:0.85;}
+.footer-text{font-size:11px;color:rgba(255,255,255,0.45);line-height:1.6;text-align:right;max-width:380px;}
+.footer-text strong{color:rgba(255,255,255,0.75);font-weight:500;}
+
+.save-indicator{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:9px 16px;border-radius:6px;font-size:11px;letter-spacing:0.04em;opacity:0;transform:translateY(8px);transition:all 0.25s;pointer-events:none;z-index:300;}
+.save-indicator.visible{opacity:0.95;transform:translateY(0);}
+
+@media(max-width:600px){
+  .q-options,.steps-grid{flex-wrap:wrap;}
+  .result-grid,.steps-grid{grid-template-columns:1fr 1fr;}
+  header h1{font-size:1.5rem;}
+  .tab-btn{padding:13px 14px 11px;font-size:12px;}
+  .footer-inner{flex-direction:column;}
+  .footer-text{text-align:center;}
+}
+
+@media print {
+  body{background:#fff;font-size:11pt;}
+  header{background:#fff;color:#000;border-bottom:1pt solid #999;}
+  header h1{color:#000;font-size:18pt;}
+  header h1 em{color:#0074A3;}
+  .header-tag{color:#666;}
+  .header-desc{color:#333;}
+  header::before,header::after{display:none;}
+  .logo-img{background:transparent;padding:0;}
+  .tabs-bar{display:none;}
+  .tab-panel{display:block!important;}
+  .tab-panel+.tab-panel{page-break-before:always;}
+  .layout{padding:1rem 0;}
+  .save-indicator,.actions{display:none;}
+  footer{background:#fff;color:#000;border-top:1pt solid #ccc;}
+  .footer-logo{background:transparent;}
+  .footer-text{color:#666;}
+  .question,.tipo-card,.farol-box,.step-card,.static-item,.alert,.result-card,.ref-box,.notes-general,.cite-box{page-break-inside:avoid;}
+  .ref-box{background:#f0f4f6;color:#000;}
+  .ref-text{color:#333;}
+  .ref-text strong{color:#000;}
+  .opt{background:#fff!important;}
+  .opt.sel-ok{background:#EDF5D8!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .opt.sel-mid{background:#FDF2D8!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .opt.sel-no{background:#FAEAEA!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="wrap site-header-inner">
-      <div class="site-brand">
-        <a href="./" class="site-brand-mark"><strong>CLEAR Lab</strong> <em>· Checklist M&amp;A</em></a>
-        <span class="site-brand-meta">v0.1 · 2026</span>
-      </div>
-      <nav class="site-nav">
-        <a href="#instrumento">Instrumento</a>
-        <a href="#guia">Guia</a>
-        <a href="#sobre">Sobre</a>
-      </nav>
+<header>
+  <div class="header-inner">
+    <div class="logo-row">
+      <img class="logo-img" src="assets/img/logo-clear.png" alt="FGV CLEAR"/>
+      <img class="logo-img" src="assets/img/logo-fgv-eesp.png" alt="FGV EESP"/>
     </div>
-  </header>
+    <div class="header-body">
+      <div class="header-tag">Instrumento de apoio à gestão pública</div>
+      <h1>Como construir um sistema de M&amp;A<br><em>no meu município?</em></h1>
+      <p class="header-desc">Checklist e diagnóstico para apoiar gestores subnacionais brasileiros na institucionalização de sistemas de monitoramento e avaliação de políticas públicas. Organizado em cinco etapas — diagnóstico, desenho, arranjo normativo, implementação, uso e consolidação — e derivado do Guia FGV CLEAR de construção de sistemas de M&amp;A.</p>
+    </div>
+  </div>
+</header>
 
-  <!-- =========================================================
-       HERO
-  ========================================================== -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-meta-top">
-        <span>Vol. 01 · Edição 01</span>
-        <span class="pipe">·</span>
-        <span>Maio 2026</span>
-        <span class="pipe">·</span>
-        <span>Derivado do Guia FGV CLEAR (2026)</span>
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="switchTab('intro',this)">Introdução</button>
+    <button class="tab-btn" onclick="switchTab('checklist',this)">Checklist de etapas</button>
+    <button class="tab-btn" onclick="switchTab('diagnostico',this)">Diagnóstico do meu sistema</button>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+</div>
+
+<div class="layout">
+
+  <!-- ── ABA 1: INTRODUÇÃO ── -->
+  <div class="tab-panel active" id="panel-intro">
+
+    <div class="intro-hero">
+      <h2>O que é esta ferramenta e para que serve?</h2>
+      <p>Construir um sistema de monitoramento e avaliação <em>(M&amp;A)</em> é um processo gradual, que envolve decisões técnicas, institucionais e políticas. Este instrumento ajuda gestores subnacionais brasileiros a localizar em que ponto desse processo seu município ou estado se encontra — e o que ainda precisa ser construído para que o sistema funcione de fato.</p>
+      <p>A ferramenta é organizada em <strong>duas modalidades de uso</strong>: um <em>checklist de etapas</em>, para imprimir e levar a uma reunião com a equipe, e um <em>diagnóstico interativo</em>, no qual o usuário responde sobre seu contexto e recebe uma leitura por etapa, com pontos de atenção identificados a partir do padrão das respostas.</p>
+      <p>O conteúdo foi derivado do <strong>Guia FGV CLEAR de construção de sistemas de M&amp;A de políticas públicas</strong> (2026). O instrumento não substitui o Guia: aponta para ele em cada etapa.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Conheça o seu sistema</div>
+        <div class="step-desc">Tenha em mente seu município, estado ou área específica antes de começar. As respostas devem refletir a situação real do seu contexto.</div>
       </div>
-      <h1>Um sistema de M&amp;A se constrói em <em>etapas.</em> Este instrumento te ajuda a localizar onde você está.</h1>
-      <p class="hero-lede">Recurso prático derivado do <em>Guia de construção de sistemas de monitoramento e avaliação de políticas públicas</em> (FGV CLEAR, 2026). Organiza, em uma página, as perguntas que governos subnacionais brasileiros precisam responder para institucionalizar suas práticas de M&amp;A — e oferece um diagnóstico interativo que aponta pontos de atenção a partir das suas próprias respostas.</p>
-
-      <div class="hero-meta">
-        <span>Origem<strong>Guia FGV CLEAR (2026)</strong></span>
-        <span>Estrutura<strong>5 etapas · 38 perguntas</strong></span>
-        <span>Formato<strong>Checklist + diagnóstico</strong></span>
-        <span>Tempo<strong>15 a 30 minutos</strong></span>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Explore o checklist</div>
+        <div class="step-desc">Na aba "Checklist", veja todas as perguntas organizadas pelas cinco etapas. Use para imprimir e estruturar uma conversa com a equipe.</div>
       </div>
-
-      <div class="epistemic-note">
-        <p><strong>Leia antes de usar.</strong> Este checklist não substitui o Guia, não classifica seu sistema em <em>níveis de maturidade</em>, e não funciona como auditoria. É instrumento de <em>conversa estruturada</em> dentro do governo. Os pontos de atenção gerados pelo diagnóstico são regras simples baseadas no Guia — não algoritmo black-box, não opinião externa.</p>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Faça seu diagnóstico</div>
+        <div class="step-desc">Na aba "Diagnóstico", responda cada pergunta com Já temos, Em construção, Ainda não ou Não se aplica. Suas respostas ficam salvas no navegador.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Leia o resultado</div>
+        <div class="step-desc">Ao final, o sistema gera pontuação por etapa e identifica pontos de atenção a partir do padrão das respostas — sempre com referência ao Guia.</div>
       </div>
     </div>
-  </section>
 
-  <!-- =========================================================
-       COMO USAR
-  ========================================================== -->
-  <section class="howto no-divider">
-    <div class="wrap">
-      <div class="howto-grid">
+    <div class="farol-box">
+      <div class="farol-title">Como interpretar o resultado</div>
+      <div class="farol-items">
+        <div class="farol-item">
+          <div class="farol-dot" style="background:#5C821A"></div>
+          <div class="farol-label"><strong>Já temos</strong> <span>— A condição está consolidada no seu sistema. Pontua 1,0 no cálculo da etapa.</span></div>
+        </div>
+        <div class="farol-item">
+          <div class="farol-dot" style="background:#B07000"></div>
+          <div class="farol-label"><strong>Em construção</strong> <span>— Há movimentação, mas ainda não está plenamente estabelecida. Pontua 0,5.</span></div>
+        </div>
+        <div class="farol-item">
+          <div class="farol-dot" style="background:#A82020"></div>
+          <div class="farol-label"><strong>Ainda não</strong> <span>— A condição não está presente. Pontua 0.</span></div>
+        </div>
+        <div class="farol-item">
+          <div class="farol-dot" style="background:#6B7A85"></div>
+          <div class="farol-label"><strong>Não se aplica</strong> <span>— A condição não cabe no seu contexto. Sai do denominador do cálculo.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="tipos-section">
+      <h2>As cinco etapas de um sistema de M&amp;A</h2>
+      <p class="lead">O Guia FGV CLEAR organiza o processo de institucionalização em cinco etapas. <em>Elas não acontecem em linha reta</em> — se sobrepõem, se revisitam, avançam juntas. Use o checklist como mapa, não como roteiro.</p>
+
+      <div class="tipo-card et1">
+        <div class="tipo-tag">Etapa I</div>
+        <div class="tipo-name">Diagnóstico</div>
+        <div class="tipo-pergunta">Pergunta central: o que já existe hoje na nossa administração?</div>
+        <div class="tipo-desc">Antes de desenhar, é preciso entender. A etapa diagnóstica mapeia capacidades técnicas, políticas e institucionais — incluindo o que está sendo feito de M&amp;A hoje, mesmo que de forma fragmentada. <em>Não comece um sistema sem um diagnóstico.</em> Inclui o uso de ferramentas estruturadas como MESA (FGV CLEAR), INCE (Deval/WFP) e <em>readiness assessment</em> (Banco Mundial).</div>
+      </div>
+
+      <div class="tipo-card et2">
+        <div class="tipo-tag">Etapa II</div>
+        <div class="tipo-name">Desenho e concepção</div>
+        <div class="tipo-pergunta">Pergunta central: para que existe o sistema, e como ele se organiza?</div>
+        <div class="tipo-desc">O desenho do sistema responde a perguntas estruturais: para que ele existe, quem participa, como se distribuem as responsabilidades. Não confunda o desenho do sistema com o desenho de uma avaliação específica — o sistema é a estrutura permanente que abriga múltiplas avaliações.</div>
+      </div>
+
+      <div class="tipo-card et3">
+        <div class="tipo-tag">Etapa III</div>
+        <div class="tipo-name">Arranjo normativo</div>
+        <div class="tipo-pergunta">Pergunta central: como dar perenidade ao sistema?</div>
+        <div class="tipo-desc">A formalização confere estabilidade, mas pode também engessar. A pergunta não é <em>se</em> formalizar, mas <em>como</em>, <em>quanto</em>, e em <em>que momento</em>. Lei dá perenidade. Decreto dá agilidade. Atos administrativos permitem começar. O caminho não é único.</div>
+      </div>
+
+      <div class="tipo-card et4">
+        <div class="tipo-tag">Etapa IV</div>
+        <div class="tipo-name">Implementação</div>
+        <div class="tipo-pergunta">Pergunta central: como o sistema funciona, em ciclo?</div>
+        <div class="tipo-desc">Implementar é converter intenções em rotina. O Guia organiza essa fase no que chama de <em>Rota do M&amp;A</em>: seleção de programas, estabelecimento de critérios, planejamento e realização das avaliações, e devolutiva dos resultados. Não é uma sequência rígida — é um ciclo que se repete.</div>
+      </div>
+
+      <div class="tipo-card et5">
+        <div class="tipo-tag">Etapa V</div>
+        <div class="tipo-name">Uso e consolidação</div>
+        <div class="tipo-pergunta">Pergunta central: as avaliações são efetivamente usadas?</div>
+        <div class="tipo-desc">Um sistema só cumpre seu propósito quando os resultados informam decisões. Mackay (2007) e Leeuw &amp; Furubo (2008) são duros: sistema sem uso vira sistema de fachada — funcional no papel, irrelevante na prática. <em>Esta é a etapa que determina se o trabalho todo valeu.</em></div>
+      </div>
+
+      <div class="ref-box">
+        <div class="ref-icon">📖</div>
+        <div class="ref-text">
+          <strong>Para aprofundamento</strong>
+          Cada etapa deste instrumento referencia o capítulo correspondente do Guia FGV CLEAR de construção de sistemas de M&amp;A de políticas públicas, com casos, ferramentas e referências bibliográficas. <a href="https://fgvclear.org" target="_blank">Acesse o Guia completo no site da FGV CLEAR</a>
+        </div>
+      </div>
+
+      <div class="cite-box">
+        <strong>Como citar este instrumento</strong>
+        FGV CLEAR. <em>Como construir um sistema de M&amp;A no meu município? Checklist e diagnóstico de etapas.</em> São Paulo: FGV CLEAR, 2026. Disponível em: <code>caiodesouzacastro.github.io/clear-cartilha-sistemas-ma</code>. Acesso em: [data]. Convênio FGV CLEAR · TCE-ES nº 00017/2024-4C.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── ABA 2: CHECKLIST ESTÁTICO ── -->
+  <div class="tab-panel" id="panel-checklist">
+    <div class="static-intro">
+      <strong>Para imprimir e levar pra reunião.</strong> Cada bloco corresponde a uma das cinco etapas que o Guia FGV CLEAR identifica para a institucionalização de sistemas de M&amp;A. As perguntas vêm das <em>perguntas orientadoras</em> do Guia, reorganizadas em forma aplicável. Não é sequência rígida — é mapa.
+    </div>
+
+    <!-- ETAPA I -->
+    <div class="bloco">
+      <div class="bloco-header">
+        <div class="bloco-num">I.</div>
         <div>
-          <div class="section-num"><strong>01</strong> · Como usar</div>
-          <h2>Dois modos, na <em>mesma página.</em></h2>
-          <p class="howto-intro">Você escolhe entre imprimir o checklist e levar pra reunião — ou responder na tela e receber um diagnóstico com pontos de atenção sugeridos pelas suas respostas.</p>
-        </div>
-        <div class="howto-steps">
-          <div class="howto-step">
-            <div class="howto-step-num">i.</div>
-            <div class="howto-step-text"><strong>Como referência impressa.</strong> Use a aba <em>Checklist</em>, abaixo. Imprima a página. Cada bloco corresponde a uma das cinco etapas que o Guia identifica como necessárias à institucionalização. Use no diálogo com a equipe.</div>
-          </div>
-          <div class="howto-step">
-            <div class="howto-step-num">ii.</div>
-            <div class="howto-step-text"><strong>Como diagnóstico.</strong> Use a aba <em>Diagnóstico</em>. Responda no seu ritmo — as respostas ficam salvas no seu navegador. Ao final, clique em <em>Gerar diagnóstico</em> e a página devolve uma leitura organizada por etapa, com pontos de atenção e referências ao Guia.</div>
-          </div>
-          <div class="howto-step">
-            <div class="howto-step-num">iii.</div>
-            <div class="howto-step-text"><strong>Sistemas não nascem em linha reta.</strong> As cinco etapas se sobrepõem, se revisitam, avançam juntas. Use o instrumento como mapa, não como roteiro.</div>
-          </div>
+          <div class="bloco-title">Diagnóstico</div>
+          <div class="bloco-subtitle">Mapear capacidades e necessidades</div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- =========================================================
-       TABS (sticky)
-  ========================================================== -->
-  <div class="tabs-wrap" id="instrumento">
-    <div class="wrap">
-      <div class="tabs">
-        <button class="tab is-active" data-tab="checklist">
-          <span class="tab-num">02 · A</span>
-          <span class="tab-label">Checklist</span>
-          <span class="tab-desc">para imprimir e anotar</span>
-        </button>
-        <button class="tab" data-tab="diagnostico">
-          <span class="tab-num">03 · B</span>
-          <span class="tab-label">Diagnóstico</span>
-          <span class="tab-desc">para responder e receber</span>
-        </button>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Há clareza sobre quais práticas de M&amp;A <strong>já existem hoje</strong> na nossa administração, mesmo que dispersas?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Mapeamos quais <strong>capacidades técnicas</strong> em monitoramento e avaliação a equipe possui — e quais faltam?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Identificamos a <strong>vontade política</strong> e o nível de comprometimento de lideranças para sustentar a construção do sistema?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Sabemos quais <strong>sistemas de informação, bases de dados e indicadores</strong> já estão em uso e podem alimentar o M&amp;A?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Consideramos aplicar uma <strong>ferramenta diagnóstica estruturada</strong> como MESA (FGV CLEAR/GEI), INCE (Deval/WFP) ou o <em>readiness assessment</em> do Banco Mundial?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Os resultados do diagnóstico vão <strong>orientar concretamente</strong> o desenho do sistema — ou correm o risco de virar relatório de gaveta?</div></div>
+
+      <div class="static-ref"><strong>Etapa I do Guia</strong> — inclui quadros sobre MESA, INCE, <em>Readiness Assessment</em>, e a experiência do FGV CLEAR aplicando MESA em Recife.</div>
+    </div>
+
+    <!-- ETAPA II -->
+    <div class="bloco">
+      <div class="bloco-header">
+        <div class="bloco-num">II.</div>
+        <div>
+          <div class="bloco-title">Desenho e concepção</div>
+          <div class="bloco-subtitle">Definir o modelo</div>
+        </div>
+      </div>
+
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Os <strong>objetivos do sistema</strong> estão definidos e priorizados — queremos resolver problemas de implementação, aperfeiçoar políticas, apoiar decisões orçamentárias, promover <em>accountability</em>, ou uma combinação realista dessas finalidades?<span class="static-sub">Objetivos amplos demais comprometem a implementação. Priorizar é melhor do que abarcar tudo.</span></div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Decidimos o <strong>tipo de arranjo institucional</strong> — centralizado, descentralizado, independente ou híbrido?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Há um <strong>grupo de trabalho intersetorial</strong> coordenando a concepção, ou um núcleo responsável por liderar o desenho?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Fizemos <strong>mapeamento de <em>stakeholders</em></strong>: quem demanda, produz, usa, bloqueia, patrocina?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Há clareza sobre as <strong>capacidades técnicas e financeiras</strong> necessárias para sustentar o sistema — e sobre como serão construídas ao longo do tempo?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Consideramos <strong>parcerias estruturais</strong> com instituições de pesquisa (universidades, FAPs, fundações estaduais como IJSN, IPECE, FJP)?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Adotamos <strong>abordagem incremental</strong> — começando com poucas avaliações-piloto antes de escalar?</div></div>
+
+      <div class="static-ref"><strong>Etapa II do Guia</strong> — casos do México (Coneval), Niterói (SIMAGI), Minas Gerais (SAPP-MG) e Reino Unido (<em>What Works Centres</em>).</div>
+    </div>
+
+    <!-- ETAPA III -->
+    <div class="bloco">
+      <div class="bloco-header">
+        <div class="bloco-num">III.</div>
+        <div>
+          <div class="bloco-title">Arranjo normativo</div>
+          <div class="bloco-subtitle">Tipos de formalização</div>
+        </div>
+      </div>
+
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Refletimos sobre o <strong>nível adequado de prescrição</strong> — equilíbrio entre clareza institucional e flexibilidade operacional?<span class="static-sub">Norma muito detalhada engessa. Norma vazia não obriga ninguém. O ponto certo está no meio.</span></div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Avaliamos a <strong>diferença entre decreto e lei</strong>, e qual instrumento serve melhor a cada componente do sistema?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Identificamos os <strong>atores e instâncias</strong> que precisam estar previstos: quem coordena, delibera, produz, usa?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">A norma prevê <strong>fluxos padronizados</strong> — ciclos, seleção, devolutiva, acompanhamento de recomendações?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Há previsão de <strong>integração com PPA, LOA e contratos de gestão</strong>?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">A norma define <strong>recursos previsíveis e mandatos claros</strong> — ou só institui o sistema no papel?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Pensamos no <strong>enforcement</strong> da norma: quem fiscaliza, cobra, acompanha o cumprimento?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Articulamos a construção da norma com o <strong>Poder Legislativo</strong> para gerar legitimidade política?</div></div>
+
+      <div class="static-ref"><strong>Etapa III do Guia</strong> — África do Sul (decreto que virou lei), Canadá (sem lei, com diretrizes), Espírito Santo (Lei 10.744/2017), São Paulo (Decreto 63.336/2024).</div>
+    </div>
+
+    <!-- ETAPA IV -->
+    <div class="bloco">
+      <div class="bloco-header">
+        <div class="bloco-num">IV.</div>
+        <div>
+          <div class="bloco-title">Implementação</div>
+          <div class="bloco-subtitle">Colocar o sistema em funcionamento</div>
+        </div>
+      </div>
+
+      <div class="static-item"><div class="static-box"></div><div class="static-text"><strong>Seleção:</strong> temos critérios para escolher programas a avaliar — relevância social, orçamento, criticidade, demanda de controle, dados?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">A seleção é <strong>participativa e transparente</strong> — envolve gestores, equipes técnicas, sociedade civil quando faz sentido?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text"><strong>Critérios:</strong> as avaliações seguem padrões consolidados — OCDE/DAC, RELAC, RBMA ou referenciais próprios?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text"><strong>Planejamento:</strong> formulamos perguntas avaliativas relevantes antes da metodologia? Fazemos <em>análise de avaliabilidade</em>?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Quando contratamos avaliações externas, elaboramos <strong>Termos de Referência</strong> cuidadosos (técnica e juridicamente)?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Há mecanismos de <strong>validação técnica</strong> — comitês, revisão por pares, pareceres externos?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text"><strong>Devolutiva:</strong> existem rotinas formais de apresentação dos resultados — sumários executivos, espaços de diálogo, planos de ação?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Os <strong>primeiros ciclos</strong> são tratados como pilotos, com espaço pra ajuste a partir do aprendizado?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Cuidamos da <strong>governança de dados</strong> — interoperabilidade, segurança, padrões de qualidade?</div></div>
+
+      <div class="static-ref"><strong>Etapa IV do Guia</strong> — Reino Unido (ETAP), Chile (DIPRES/MDSF), Brasil (12 avaliações/ciclo), Jalisco (plataforma de avaliações).</div>
+    </div>
+
+    <!-- ETAPA V -->
+    <div class="bloco">
+      <div class="bloco-header">
+        <div class="bloco-num">V.</div>
+        <div>
+          <div class="bloco-title">Uso e consolidação</div>
+          <div class="bloco-subtitle">Garantir utilidade e sustentabilidade</div>
+        </div>
+      </div>
+
+      <div class="static-item"><div class="static-box"></div><div class="static-text">As avaliações respondem <strong>perguntas relevantes</strong> para quem decide — não só tecnicamente interessantes?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Os resultados chegam <strong>em tempo hábil</strong> para influenciar decisões — antes do orçamento, antes da revisão da política?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Comunicamos em <strong>formatos acessíveis</strong> — sumários, painéis, <em>one-page reports</em>?<span class="static-sub">Minas Gerais adotou o one page report como instrumento padrão.</span></div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Existem <strong>planos de ação formais</strong> em resposta às recomendações, com responsáveis, prazos e entregas — como o CMAP/Brasil e o Plan de Acción/Costa Rica?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">A implementação das recomendações é <strong>acompanhada ao longo do tempo</strong> — não só registrada no momento da devolutiva?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Há <strong>incentivos institucionais</strong> ao uso — vinculação ao orçamento, prestação de contas, reconhecimento público?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">Cultivamos <strong>cultura avaliativa</strong> — formação continuada, redes de prática, lideranças que defendem o uso de evidências?</div></div>
+      <div class="static-item"><div class="static-box"></div><div class="static-text">O sistema tem <strong>ancoragem institucional</strong> suficiente para sobreviver a transições políticas?</div></div>
+
+      <div class="static-ref"><strong>Etapa V do Guia</strong> — Costa Rica (Plan de Acción), Chile (82% de cumprimento), Jalisco (plataforma on-line), Brasil (CMAP), Minas Gerais (<em>one page report</em>).</div>
+    </div>
+
+    <div class="ref-box" style="margin-top:2rem;">
+      <div class="ref-icon">🖨️</div>
+      <div class="ref-text">
+        <strong>Para usar este checklist</strong>
+        Imprima esta página (Ctrl+P ou Cmd+P) ou copie as perguntas para um documento de equipe. Caso queira receber pontos de atenção específicos para o seu contexto, use a aba <em>Diagnóstico do meu sistema</em>.
       </div>
     </div>
   </div>
 
-  <!-- =========================================================
-       TAB A — CHECKLIST ESTÁTICO
-  ========================================================== -->
-  <div class="tab-content is-active" id="tab-checklist">
+  <!-- ── ABA 3: DIAGNÓSTICO INTERATIVO ── -->
+  <div class="tab-panel" id="panel-diagnostico">
+    <div class="checklist-intro">
+      <strong>Como usar:</strong> Para cada pergunta, selecione um dos quatro estados — <strong>Já temos</strong>, <strong>Em construção</strong>, <strong>Ainda não</strong>, <strong>Não se aplica</strong>. Use o campo de anotação para registrar nuances. Suas respostas <em>ficam salvas no seu navegador</em> — você pode fechar a página e voltar depois. O diagnóstico ao final da página se atualiza automaticamente.
+    </div>
 
-    <section class="part-intro no-divider">
-      <div class="wrap-narrow">
-        <div class="part-intro-tag">02 · A · Checklist estático</div>
-        <h2>Para ler, anotar, <em>imprimir.</em></h2>
-        <p class="part-intro-lede">Cada bloco corresponde a uma das cinco etapas que o Guia identifica para a institucionalização de sistemas de M&amp;A: diagnóstico, desenho, arranjo normativo, implementação, e uso e consolidação. As perguntas vêm das <em>perguntas orientadoras</em> do Guia, reorganizadas em forma aplicável.</p>
-        <p class="part-intro-lede"><strong>Imprima a página</strong> (Ctrl+P ou Cmd+P) para levar à reunião. O CSS de impressão imprime as duas abas: checklist + diagnóstico, se já houver respostas marcadas.</p>
+    <div id="questions-area"></div>
 
-        <div class="sumario">
-          <div class="sumario-label">Navegar pelas etapas</div>
-          <ol>
-            <li><a href="#etapa-1">Diagnóstico</a></li>
-            <li><a href="#etapa-2">Desenho</a></li>
-            <li><a href="#etapa-3">Arranjo normativo</a></li>
-            <li><a href="#etapa-4">Implementação</a></li>
-            <li><a href="#etapa-5">Uso e consolidação</a></li>
-          </ol>
-        </div>
+    <div class="notes-general">
+      <label for="general-notes">Anotações gerais sobre o sistema</label>
+      <textarea id="general-notes" placeholder="Espaço livre — contexto político, próximos passos, pessoas a engajar, prazos relevantes..."></textarea>
+    </div>
+
+    <div class="results-section">
+      <div class="results-header">
+        <div class="results-title">Seu diagnóstico</div>
+        <div class="answered-count" id="answered-count">0 de 36 perguntas respondidas</div>
       </div>
-    </section>
+      <p class="results-desc">A leitura abaixo é gerada por regras simples a partir das suas respostas. Trate-a como ponto de partida para conversa, não como veredito. As anotações por pergunta guardam as <em>nuances</em> que o resumo automático não captura.</p>
 
-    <section>
-      <div class="wrap-narrow">
+      <div class="result-grid" id="result-grid"></div>
 
-        <!-- ETAPA I -->
-        <div class="etapa scroll-anchor" id="etapa-1">
-          <div class="etapa-marker">
-            <div class="etapa-num">I.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa I · Mapear capacidades e necessidades</div>
-              <h3>Diagnóstico</h3>
-            </div>
-          </div>
-          <p class="etapa-intro">Antes de desenhar, é preciso entender o que já existe. A etapa diagnóstica mapeia capacidades técnicas, políticas e institucionais — incluindo o que está sendo feito de M&amp;A hoje, mesmo que de forma fragmentada. <strong>Não comece um sistema sem um diagnóstico.</strong></p>
-
-          <ul class="checklist">
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Há clareza sobre quais práticas de M&amp;A <strong>já existem hoje</strong> na nossa administração, mesmo que dispersas ou pontuais?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Mapeamos quais <strong>capacidades técnicas</strong> em monitoramento e avaliação a nossa equipe possui — e quais ainda faltam?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Identificamos a <strong>vontade política</strong> e o nível de comprometimento de lideranças para sustentar a construção do sistema?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Sabemos quais <strong>sistemas de informação, bases de dados e indicadores</strong> já estão em uso no governo e podem alimentar o M&amp;A?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Consideramos aplicar — ou já aplicamos — uma <strong>ferramenta diagnóstica estruturada</strong> como MESA (FGV CLEAR/GEI), INCE (Deval/WFP) ou o <em>readiness assessment</em> do Banco Mundial?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Os resultados do diagnóstico vão <strong>orientar concretamente</strong> o desenho do sistema — ou correm o risco de virar relatório de gaveta?</div>
-            </li>
-          </ul>
-
-          <div class="guia-ref">Para aprofundar: <strong>Etapa I do Guia</strong> — quadros sobre MESA, INCE e <em>Readiness Assessment</em>, e a experiência do FGV CLEAR aplicando MESA em Recife.</div>
-        </div>
-
-        <!-- ETAPA II -->
-        <div class="etapa scroll-anchor" id="etapa-2">
-          <div class="etapa-marker">
-            <div class="etapa-num">II.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa II · Definir o modelo</div>
-              <h3>Desenho e concepção</h3>
-            </div>
-          </div>
-          <p class="etapa-intro">O desenho do sistema responde a perguntas estruturais: <em>para que</em> ele existe, <em>quem</em> participa, <em>como</em> se distribuem as responsabilidades. Não confunda o desenho do sistema com o desenho de uma avaliação específica — o sistema é a estrutura permanente que abriga múltiplas avaliações.</p>
-
-          <ul class="checklist">
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Os <strong>objetivos do sistema</strong> estão definidos? Sabemos se queremos resolver problemas de implementação, aperfeiçoar políticas, apoiar decisões orçamentárias, promover <em>accountability</em> — ou alguma combinação realista dessas finalidades?
-                <span class="sub">O Guia alerta: objetivos excessivamente amplos comprometem a implementação. Priorizar é melhor do que abarcar tudo.</span>
-              </div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Decidimos qual <strong>tipo de arranjo institucional</strong> faz sentido para o nosso contexto — centralizado, descentralizado, independente ou híbrido?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Há um <strong>grupo de trabalho intersetorial</strong> coordenando a concepção, ou pelo menos um núcleo responsável por liderar o desenho?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Fizemos um <strong>mapeamento de <em>stakeholders</em></strong>: quem demanda evidências, quem produz, quem usa, quem pode bloquear, quem pode patrocinar?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Há clareza sobre as <strong>capacidades técnicas e financeiras</strong> necessárias para sustentar o sistema — e sobre como elas serão construídas ao longo do tempo?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Consideramos <strong>parcerias estruturais</strong> com instituições de pesquisa (universidades, FAPs, fundações estaduais como IJSN, IPECE ou FJP), que podem fortalecer a capacidade técnica do sistema?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Adotamos uma <strong>abordagem incremental</strong> — começando com poucas avaliações-piloto, em poucos setores, para testar e aprender antes de escalar?</div>
-            </li>
-          </ul>
-
-          <div class="guia-ref">Para aprofundar: <strong>Etapa II do Guia</strong> — casos do México (Coneval), Niterói (SIMAGI), Minas Gerais (SAPP-MG) e Reino Unido (<em>What Works Centres</em>).</div>
-        </div>
-
-        <!-- ETAPA III -->
-        <div class="etapa scroll-anchor" id="etapa-3">
-          <div class="etapa-marker">
-            <div class="etapa-num">III.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa III · Tipos de formalização</div>
-              <h3>Arranjo normativo</h3>
-            </div>
-          </div>
-          <p class="etapa-intro">A formalização confere estabilidade, mas pode também engessar. A pergunta não é <em>se</em> formalizar, mas <em>como</em>, <em>quanto</em>, e <em>em que momento</em>. Lei dá perenidade. Decreto dá agilidade. Atos administrativos permitem começar. <strong>O caminho não é único.</strong></p>
-
-          <ul class="checklist">
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Refletimos sobre o <strong>nível adequado de prescrição</strong> — equilíbrio entre clareza institucional e flexibilidade operacional?
-                <span class="sub">Norma muito detalhada engessa. Norma vazia não obriga ninguém. O ponto certo está no meio.</span>
-              </div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Avaliamos a <strong>diferença entre decreto e lei</strong>, e qual instrumento serve melhor a cada componente do sistema (princípios estruturantes vs. operacionalização)?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Identificamos os <strong>atores e instâncias</strong> que precisam estar previstos: quem coordena, quem delibera, quem produz, quem usa?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">A norma prevê <strong>fluxos padronizados</strong> — ciclos de avaliação, seleção de programas, devolutiva e acompanhamento de recomendações?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Há previsão de <strong>integração com os ciclos de planejamento e orçamento</strong> (PPA, LOA, contratos de gestão)?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">A norma define <strong>recursos previsíveis e mandatos claros</strong> para as unidades técnicas — ou só institui o sistema no papel?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Pensamos em quem vai <strong>fiscalizar o cumprimento da norma</strong>: <em>enforcement</em> por órgãos de controle, sociedade civil, instâncias internas?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Articulamos a construção da norma com o <strong>Poder Legislativo</strong> — para gerar legitimidade e descobrir demandas de informação úteis para deliberações orçamentárias?</div>
-            </li>
-          </ul>
-
-          <div class="guia-ref">Para aprofundar: <strong>Etapa III do Guia</strong> — casos da África do Sul (decreto que virou lei), Canadá (sem lei específica, mas com diretrizes consolidadas), Espírito Santo (Lei 10.744/2017) e São Paulo (Decreto 63.336/2024).</div>
-        </div>
-
-        <!-- ETAPA IV -->
-        <div class="etapa scroll-anchor" id="etapa-4">
-          <div class="etapa-marker">
-            <div class="etapa-num">IV.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa IV · Colocar o sistema em funcionamento</div>
-              <h3>Implementação</h3>
-            </div>
-          </div>
-          <p class="etapa-intro">Implementar é converter intenções em rotina. O Guia organiza essa fase no que chama de <em>Rota do M&amp;A</em>: seleção de programas, estabelecimento de critérios, planejamento e realização das avaliações, e devolutiva dos resultados. Não é uma sequência rígida — é um ciclo que se repete.</p>
-
-          <ul class="checklist">
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text"><strong>Seleção:</strong> temos critérios claros para escolher os programas a serem avaliados — relevância social, orçamento, criticidade, demanda de órgãos de controle, disponibilidade de dados?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">O processo de seleção é <strong>participativo e transparente</strong>, envolvendo gestores, equipes técnicas e, quando faz sentido, sociedade civil?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text"><strong>Critérios:</strong> as avaliações são guiadas por padrões consolidados — critérios OCDE/DAC, diretrizes da RELAC, da RBMA, ou referenciais próprios?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text"><strong>Planejamento:</strong> formulamos perguntas avaliativas relevantes antes de definir metodologia? Realizamos <em>análise de avaliabilidade</em> dos programas selecionados?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Quando contratamos avaliações externas, elaboramos <strong>Termos de Referência</strong> detalhados, com cuidado jurídico e técnico-operacional?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Há mecanismos de <strong>validação técnica</strong> — comitês, revisão por pares, pareceres externos — que protejam a qualidade dos estudos?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text"><strong>Devolutiva:</strong> existem rotinas formais de apresentação dos resultados a gestores e tomadores de decisão — com sumários executivos, espaços de diálogo, planos de ação?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Os <strong>primeiros ciclos avaliativos</strong> foram tratados como pilotos, com espaço para ajuste progressivo a partir do aprendizado institucional?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Cuidamos da <strong>governança de dados</strong> — interoperabilidade entre sistemas, segurança da informação, padrões de qualidade?</div>
-            </li>
-          </ul>
-
-          <div class="guia-ref">Para aprofundar: <strong>Etapa IV do Guia</strong> — casos do Reino Unido (ETAP), Chile (DIPRES/MDSF), do governo federal brasileiro (12 avaliações/ciclo, em média) e da plataforma de Jalisco (México).</div>
-        </div>
-
-        <!-- ETAPA V -->
-        <div class="etapa scroll-anchor" id="etapa-5">
-          <div class="etapa-marker">
-            <div class="etapa-num">V.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa V · Garantir utilidade e sustentabilidade</div>
-              <h3>Uso e consolidação</h3>
-            </div>
-          </div>
-          <p class="etapa-intro">Um sistema de M&amp;A só cumpre seu propósito quando os resultados das avaliações <em>efetivamente informam decisões</em>. Mackay (2007) e Leeuw &amp; Furubo (2008) são duros: sistema sem uso vira sistema de fachada — funcional no papel, irrelevante na prática. <strong>Esta é a etapa que determina se o trabalho todo valeu.</strong></p>
-
-          <ul class="checklist">
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">As avaliações respondem <strong>perguntas relevantes</strong> para quem decide — e não apenas perguntas tecnicamente interessantes?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Os resultados são entregues <strong>em tempo hábil</strong> para influenciar decisões — antes do orçamento, antes da revisão da política?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Os formatos de comunicação são <strong>acessíveis</strong> a não-especialistas — sumários executivos, painéis, <em>one-page reports</em>?
-                <span class="sub">Minas Gerais adotou o one page report como instrumento padrão. Vale conhecer.</span>
-              </div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Existem <strong>planos de ação formais</strong> em resposta às recomendações, com responsáveis, prazos e entregas — como o modelo do CMAP no governo federal e do Plan de Acción na Costa Rica?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">A implementação das recomendações é <strong>acompanhada</strong> ao longo do tempo, e não apenas registrada no momento da devolutiva?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Há <strong>incentivos institucionais</strong> ao uso — vinculação ao orçamento, exigências de prestação de contas, reconhecimento público de boas práticas?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">Estamos cultivando <strong>cultura avaliativa</strong> — formação continuada, redes de prática, lideranças que defendem o uso de evidências como prática cotidiana?</div>
-            </li>
-            <li>
-              <div class="checkbox-static"></div>
-              <div class="checklist-text">O sistema tem <strong>ancoragem institucional</strong> suficiente para sobreviver a transições políticas — normas, fluxos, recursos, equipes estáveis?</div>
-            </li>
-          </ul>
-
-          <div class="guia-ref">Para aprofundar: <strong>Etapa V do Guia</strong> — modelo da Costa Rica (Plan de Acción com classificação de progresso), Chile (82% de cumprimento de recomendações entre 2000–2008), Jalisco (plataforma pública on-line), Brasil/CMAP e Minas Gerais (<em>one page report</em>).</div>
-        </div>
-
+      <div class="alerts-area">
+        <div class="alerts-area-title">Pontos de atenção</div>
+        <div id="alerts-box"><div class="alerts-empty">Responda algumas perguntas para ver os pontos de atenção do seu sistema.</div></div>
       </div>
-    </section>
 
-  </div><!-- /tab-checklist -->
-
-  <!-- =========================================================
-       TAB B — DIAGNÓSTICO ITERATIVO
-  ========================================================== -->
-  <div class="tab-content" id="tab-diagnostico">
-
-    <section class="part-intro no-divider">
-      <div class="wrap-narrow">
-        <div class="part-intro-tag">03 · B · Diagnóstico iterativo</div>
-        <h2>Para responder e <em>receber retorno.</em></h2>
-        <p class="part-intro-lede">As mesmas etapas, agora em formato respondível. Para cada pergunta, escolha o estado mais próximo do seu contexto: <strong style="color:var(--st-ok);">já temos</strong>, <strong style="color:var(--st-mid);">em construção</strong>, <strong style="color:var(--st-no);">ainda não</strong> ou <strong style="color:var(--st-na);">não se aplica</strong>. O campo de texto ao lado é pra anotar nuances — o que você marcou como <em>em construção</em> pode merecer uma frase de contexto.</p>
-        <p class="part-intro-lede">Suas respostas ficam salvas no seu navegador. Você pode fechar a aba, voltar amanhã, terminar depois. Quando estiver pronto, clique em <em>Gerar diagnóstico</em> no fim — a página devolve uma leitura organizada e aponta o que merece atenção.</p>
-      </div>
-    </section>
-
-    <section style="padding-top: 24px;">
-      <div class="wrap-narrow">
-
-        <!-- DIAG ETAPA I -->
-        <div class="diagnostico-bloco">
-          <div class="etapa-marker">
-            <div class="etapa-num">I.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa I · Diagnóstico</div>
-              <h3>Mapear capacidades e necessidades</h3>
-            </div>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d1-1" data-etapa="et-1">
-            <div class="dq-text">Temos clareza sobre quais práticas de M&amp;A já existem hoje na nossa administração?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d1-1" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d1-1" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d1-1" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d1-1" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d1-1" placeholder="Anotação opcional — o que sabemos, o que ainda não está claro..."></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d1-2" data-etapa="et-1">
-            <div class="dq-text">Mapeamos as capacidades técnicas da equipe — o que sabemos fazer e o que precisamos aprender?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d1-2" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d1-2" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d1-2" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d1-2" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d1-2" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d1-3" data-etapa="et-1">
-            <div class="dq-text">Identificamos lideranças com vontade política e capacidade de patrocinar a construção do sistema?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d1-3" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d1-3" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d1-3" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d1-3" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d1-3" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d1-4" data-etapa="et-1">
-            <div class="dq-text">Sabemos quais sistemas de informação, bases de dados e indicadores já estão em uso e podem alimentar o M&amp;A?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d1-4" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d1-4" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d1-4" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d1-4" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d1-4" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d1-5" data-etapa="et-1">
-            <div class="dq-text">Aplicamos — ou pretendemos aplicar — uma ferramenta diagnóstica estruturada (MESA, INCE, <em>readiness assessment</em>)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d1-5" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d1-5" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d1-5" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d1-5" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d1-5" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d1-6" data-etapa="et-1">
-            <div class="dq-text">Os resultados do diagnóstico estão (ou estarão) sendo usados para orientar concretamente o desenho do sistema?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d1-6" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d1-6" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d1-6" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d1-6" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d1-6" placeholder="Anotação opcional"></textarea>
-          </div>
-        </div>
-
-        <!-- DIAG ETAPA II -->
-        <div class="diagnostico-bloco">
-          <div class="etapa-marker">
-            <div class="etapa-num">II.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa II · Desenho</div>
-              <h3>Definir o modelo</h3>
-            </div>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d2-1" data-etapa="et-2">
-            <div class="dq-text">Os objetivos do sistema estão definidos e priorizados (e não tentamos abarcar todas as finalidades de uma vez)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d2-1" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d2-1" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d2-1" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d2-1" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d2-1" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d2-2" data-etapa="et-2">
-            <div class="dq-text">Decidimos o tipo de arranjo — centralizado, descentralizado, independente ou híbrido?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d2-2" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d2-2" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d2-2" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d2-2" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d2-2" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d2-3" data-etapa="et-2">
-            <div class="dq-text">Existe um grupo de trabalho intersetorial — ou núcleo coordenador — responsável pelo desenho do sistema?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d2-3" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d2-3" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d2-3" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d2-3" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d2-3" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d2-4" data-etapa="et-2">
-            <div class="dq-text">Fizemos mapeamento de <em>stakeholders</em>: quem demanda, produz, usa e pode bloquear ou patrocinar?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d2-4" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d2-4" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d2-4" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d2-4" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d2-4" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d2-5" data-etapa="et-2">
-            <div class="dq-text">Temos previsão de recursos financeiros e humanos para sustentar o sistema — não só para fazer avaliações, mas para institucionalizá-lo?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d2-5" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d2-5" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d2-5" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d2-5" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d2-5" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d2-6" data-etapa="et-2">
-            <div class="dq-text">Estabelecemos parcerias estruturais com instituições de pesquisa (universidades, FAPs, fundações estaduais)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d2-6" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d2-6" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d2-6" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d2-6" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d2-6" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d2-7" data-etapa="et-2">
-            <div class="dq-text">Adotamos uma abordagem incremental — começando pequeno, com pilotos, antes de escalar?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d2-7" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d2-7" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d2-7" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d2-7" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d2-7" placeholder="Anotação opcional"></textarea>
-          </div>
-        </div>
-
-        <!-- DIAG ETAPA III -->
-        <div class="diagnostico-bloco">
-          <div class="etapa-marker">
-            <div class="etapa-num">III.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa III · Arranjo normativo</div>
-              <h3>Tipos de formalização</h3>
-            </div>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d3-1" data-etapa="et-3">
-            <div class="dq-text">Existe instrumento normativo formal — lei, decreto, portaria — que institui o sistema?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d3-1" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d3-1" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d3-1" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d3-1" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d3-1" placeholder="Qual instrumento? (Lei nº..., Decreto nº..., etc.)"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d3-2" data-etapa="et-3">
-            <div class="dq-text">A norma encontra equilíbrio entre clareza e flexibilidade — sem engessar nem ficar genérica demais?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d3-2" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d3-2" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d3-2" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d3-2" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d3-2" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d3-3" data-etapa="et-3">
-            <div class="dq-text">A norma define atores, instâncias deliberativas e fluxos padronizados de avaliação?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d3-3" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d3-3" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d3-3" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d3-3" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d3-3" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d3-4" data-etapa="et-3">
-            <div class="dq-text">Há integração formal com os ciclos de planejamento e orçamento (PPA, LOA, contratos de gestão)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d3-4" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d3-4" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d3-4" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d3-4" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d3-4" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d3-5" data-etapa="et-3">
-            <div class="dq-text">A norma garante recursos previsíveis e mandatos claros para as unidades técnicas?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d3-5" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d3-5" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d3-5" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d3-5" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d3-5" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d3-6" data-etapa="et-3">
-            <div class="dq-text">Pensamos no <em>enforcement</em> da norma — quem fiscaliza, quem cobra, como se acompanha o cumprimento?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d3-6" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d3-6" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d3-6" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d3-6" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d3-6" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d3-7" data-etapa="et-3">
-            <div class="dq-text">Articulamos a construção da norma com o Poder Legislativo, gerando legitimidade política?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d3-7" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d3-7" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d3-7" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d3-7" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d3-7" placeholder="Anotação opcional"></textarea>
-          </div>
-        </div>
-
-        <!-- DIAG ETAPA IV -->
-        <div class="diagnostico-bloco">
-          <div class="etapa-marker">
-            <div class="etapa-num">IV.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa IV · Implementação</div>
-              <h3>Colocar o sistema em funcionamento</h3>
-            </div>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d4-1" data-etapa="et-4">
-            <div class="dq-text">Temos critérios claros para selecionar os programas a serem avaliados?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d4-1" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d4-1" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d4-1" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d4-1" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d4-1" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d4-2" data-etapa="et-4">
-            <div class="dq-text">O processo de seleção é participativo — envolve gestores, equipes técnicas e, quando faz sentido, sociedade civil?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d4-2" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d4-2" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d4-2" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d4-2" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d4-2" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d4-3" data-etapa="et-4">
-            <div class="dq-text">As avaliações seguem critérios consolidados (OCDE/DAC, RELAC, RBMA ou referenciais próprios)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d4-3" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d4-3" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d4-3" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d4-3" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d4-3" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d4-4" data-etapa="et-4">
-            <div class="dq-text">Realizamos análise de avaliabilidade dos programas antes de iniciar a avaliação?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d4-4" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d4-4" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d4-4" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d4-4" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d4-4" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d4-5" data-etapa="et-4">
-            <div class="dq-text">Quando contratamos avaliações externas, elaboramos Termos de Referência cuidadosos (técnica e juridicamente)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d4-5" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d4-5" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d4-5" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d4-5" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d4-5" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d4-6" data-etapa="et-4">
-            <div class="dq-text">Existem mecanismos de validação técnica (comitês, revisão por pares, pareceres externos)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d4-6" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d4-6" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d4-6" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d4-6" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d4-6" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d4-7" data-etapa="et-4">
-            <div class="dq-text">Existem rotinas formais de devolutiva — apresentação aos gestores, sumários executivos, espaços de diálogo?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d4-7" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d4-7" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d4-7" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d4-7" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d4-7" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d4-8" data-etapa="et-4">
-            <div class="dq-text">Os primeiros ciclos foram (ou estão sendo) tratados como pilotos, com espaço para ajuste a partir do aprendizado?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d4-8" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d4-8" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d4-8" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d4-8" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d4-8" placeholder="Anotação opcional"></textarea>
-          </div>
-        </div>
-
-        <!-- DIAG ETAPA V -->
-        <div class="diagnostico-bloco">
-          <div class="etapa-marker">
-            <div class="etapa-num">V.</div>
-            <div class="etapa-titles">
-              <div class="etapa-tag">Etapa V · Uso e consolidação</div>
-              <h3>Garantir utilidade e sustentabilidade</h3>
-            </div>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d5-1" data-etapa="et-5">
-            <div class="dq-text">As avaliações respondem perguntas relevantes para quem decide — e não apenas tecnicamente interessantes?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d5-1" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d5-1" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d5-1" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d5-1" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d5-1" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d5-2" data-etapa="et-5">
-            <div class="dq-text">Os resultados chegam em tempo hábil para influenciar decisões (antes do orçamento, antes da revisão da política)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d5-2" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d5-2" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d5-2" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d5-2" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d5-2" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d5-3" data-etapa="et-5">
-            <div class="dq-text">Comunicamos os resultados em formatos acessíveis — sumários, painéis, <em>one-page reports</em>?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d5-3" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d5-3" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d5-3" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d5-3" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d5-3" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d5-4" data-etapa="et-5">
-            <div class="dq-text">Cada avaliação gera um plano de ação formal, com responsáveis, prazos e entregas?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d5-4" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d5-4" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d5-4" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d5-4" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d5-4" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d5-5" data-etapa="et-5">
-            <div class="dq-text">A implementação das recomendações é acompanhada ao longo do tempo (não apenas registrada uma vez)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d5-5" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d5-5" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d5-5" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d5-5" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d5-5" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d5-6" data-etapa="et-5">
-            <div class="dq-text">Existem incentivos institucionais ao uso — vinculação ao orçamento, prestação de contas, reconhecimento público?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d5-6" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d5-6" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d5-6" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d5-6" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d5-6" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d5-7" data-etapa="et-5">
-            <div class="dq-text">Cultivamos cultura avaliativa — formação continuada, redes de prática, lideranças que defendem o uso de evidências?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d5-7" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d5-7" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d5-7" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d5-7" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d5-7" placeholder="Anotação opcional"></textarea>
-          </div>
-
-          <div class="diagnostico-question" data-qid="d5-8" data-etapa="et-5">
-            <div class="dq-text">O sistema tem ancoragem suficiente para sobreviver a transições políticas (normas, fluxos, equipes estáveis)?</div>
-            <div class="dq-options">
-              <label class="dq-option" data-qid="d5-8" data-state="ok"><span class="dq-option-dot"></span>Já temos</label>
-              <label class="dq-option" data-qid="d5-8" data-state="mid"><span class="dq-option-dot"></span>Em construção</label>
-              <label class="dq-option" data-qid="d5-8" data-state="no"><span class="dq-option-dot"></span>Ainda não</label>
-              <label class="dq-option" data-qid="d5-8" data-state="na"><span class="dq-option-dot"></span>Não se aplica</label>
-            </div>
-            <textarea class="dq-note" data-qid="d5-8" placeholder="Anotação opcional"></textarea>
-          </div>
-        </div>
-
-        <!-- Anotações gerais -->
-        <div class="notes-section">
-          <label for="general-notes">Anotações gerais sobre o sistema</label>
-          <textarea class="notes-textarea" id="general-notes" placeholder="Espaço livre para anotações que não cabem em uma pergunta específica — contexto político, próximos passos imaginados, pessoas a engajar, prazos relevantes..."></textarea>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================
-         CTA — GERAR DIAGNÓSTICO
-    ========================================================== -->
-    <section class="resultado-cta no-divider">
-      <div class="wrap">
-        <h2>Pronto pro seu <em>diagnóstico</em>?</h2>
-        <p>A página gera uma leitura organizada das suas respostas, com pontuação por etapa e pontos de atenção identificados a partir do padrão das suas marcações — sempre com referência ao Guia.</p>
-        <div class="progress-text" id="progress-text">0 de 36 perguntas respondidas</div>
-        <div class="resultado-cta-actions">
-          <button class="btn-primary" id="btn-gerar" disabled>Responda ao menos 5 perguntas</button>
-          <button class="btn-light" id="btn-print-top">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
-            Imprimir tudo
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         RESULTADO RENDERIZADO
-    ========================================================== -->
-    <section class="resultado hidden" id="resultado">
-      <div class="wrap">
-        <div class="section-num"><strong>04</strong> · Seu diagnóstico</div>
-        <h2>Onde seu sistema <em>está</em> — e o que merece atenção.</h2>
-        <p class="resultado-lede">A leitura abaixo é gerada por regras simples a partir das suas respostas. Trate-a como ponto de partida para conversa, não como veredito. As anotações por pergunta guardam as <em>nuances</em> que o resumo automático não captura.</p>
-
-        <div class="score-grid" id="score-grid"></div>
-
-        <div class="alerts-section">
-          <h3>Pontos de atenção</h3>
-          <div id="alerts-box"></div>
-        </div>
-
-        <div class="resultado-actions">
-          <button class="btn-action is-primary" id="btn-print">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
-            Imprimir tudo
-          </button>
-          <button class="btn-action" id="btn-export">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            Baixar em Markdown
-          </button>
-          <button class="btn-action is-danger" id="btn-clear">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-            Limpar respostas
-          </button>
-        </div>
-      </div>
-    </section>
-
-  </div><!-- /tab-diagnostico -->
-
-  <!-- =========================================================
-       CTA PRO GUIA
-  ========================================================== -->
-  <section class="cta-guia no-divider" id="guia">
-    <div class="wrap">
-      <div class="cta-guia-inner">
-        <div>
-          <h2>O <em>Guia completo</em>, com os capítulos referenciados aqui.</h2>
-          <p>Construção de sistemas de monitoramento e avaliação de políticas públicas.<br>FGV CLEAR, 2026. Contém todos os casos, ferramentas e referências mencionados neste instrumento.</p>
-        </div>
-        <a class="btn-primary" href="assets/pdf/guia-completo.pdf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Baixar o Guia em PDF
-        </a>
+      <div class="actions">
+        <button class="btn primary" id="btn-print">🖨 Imprimir diagnóstico</button>
+        <button class="btn" id="btn-export">⬇ Baixar em Markdown</button>
+        <button class="btn danger" id="btn-clear">↺ Limpar respostas</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
-  <footer class="site-footer" id="sobre">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand"><em>CLEAR Lab</em> · Checklist M&amp;A</div>
-          <p class="footer-tag">Recurso prático para construção de sistemas de monitoramento e avaliação de políticas públicas em entes subnacionais. Derivado do <em>Guia de construção de sistemas de M&amp;A de políticas públicas</em> (FGV CLEAR, 2026). Desenvolvido no <em>CLEAR Lab</em>, FGV EESP.</p>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-label">Etapas</div>
-          <a href="#etapa-1">I · Diagnóstico</a>
-          <a href="#etapa-2">II · Desenho</a>
-          <a href="#etapa-3">III · Normativo</a>
-          <a href="#etapa-4">IV · Implementação</a>
-          <a href="#etapa-5">V · Uso e consolidação</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-label">Bens públicos · CLEAR Lab</div>
-          <a href="https://caiodesouzacastro.github.io/painel-clear/" target="_blank" rel="noopener">Painel CLEAR</a>
-          <a href="https://caiodesouzacastro.github.io/radar-politicas-municipais/" target="_blank" rel="noopener">Radar de Políticas Municipais</a>
-          <a href="https://caiodesouzacastro.github.io/clear-lab-prototypes/" target="_blank" rel="noopener">CLEAR Lab Prototypes</a>
-          <a href="https://fgvclear.org" target="_blank" rel="noopener">fgvclear.org</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>v0.1 · Volume 01 · Edição 01 · Maio 2026</span>
-        <span>Código MIT · Conteúdo CC BY 4.0 · FGV CLEAR Lab · EESP</span>
-      </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logos">
+      <img class="footer-logo" src="assets/img/logo-clear.png" alt="FGV CLEAR"/>
+      <img class="footer-logo" src="assets/img/logo-fgv-eesp.png" alt="FGV EESP"/>
     </div>
-  </footer>
+    <div class="footer-text">
+      <strong>FGV CLEAR</strong> · Centro de Aprendizagem em Avaliação e Resultados<br>
+      Convênio FGV CLEAR · TCE-ES nº 00017/2024-4C · 2026
+    </div>
+  </div>
+</footer>
 
-  <div class="save-indicator" id="save-indicator">salvo</div>
+<div class="save-indicator" id="save-indicator">salvo</div>
 
-  <script src="assets/js/diagnostico.js"></script>
+<script>
+/* ─────────────────────────────────────────────────────────────────
+   DADOS — Etapas, perguntas, regras
+   ───────────────────────────────────────────────────────────────── */
+
+const ETAPAS = [
+  { id:'et1', num:'I',   nome:'Diagnóstico',          sub:'Mapear capacidades e necessidades' },
+  { id:'et2', num:'II',  nome:'Desenho',              sub:'Definir o modelo' },
+  { id:'et3', num:'III', nome:'Arranjo normativo',    sub:'Tipos de formalização' },
+  { id:'et4', num:'IV',  nome:'Implementação',        sub:'Colocar o sistema em funcionamento' },
+  { id:'et5', num:'V',   nome:'Uso e consolidação',   sub:'Garantir utilidade e sustentabilidade' },
+];
+
+const PERGUNTAS = [
+  // Etapa I
+  { id:'d1-1', et:'et1', text:'Temos clareza sobre quais práticas de M&A já existem hoje na nossa administração?' },
+  { id:'d1-2', et:'et1', text:'Mapeamos as capacidades técnicas da equipe — o que sabemos fazer e o que precisamos aprender?' },
+  { id:'d1-3', et:'et1', text:'Identificamos lideranças com vontade política para patrocinar a construção do sistema?' },
+  { id:'d1-4', et:'et1', text:'Sabemos quais sistemas de informação, bases e indicadores já estão em uso e podem alimentar o M&A?' },
+  { id:'d1-5', et:'et1', text:'Aplicamos — ou pretendemos aplicar — uma ferramenta diagnóstica estruturada (MESA, INCE, <em>readiness assessment</em>)?' },
+  { id:'d1-6', et:'et1', text:'Os resultados do diagnóstico estão (ou estarão) orientando concretamente o desenho do sistema?' },
+  // Etapa II
+  { id:'d2-1', et:'et2', text:'Os objetivos do sistema estão definidos e priorizados (não tentamos abarcar todas as finalidades de uma vez)?' },
+  { id:'d2-2', et:'et2', text:'Decidimos o tipo de arranjo — centralizado, descentralizado, independente ou híbrido?' },
+  { id:'d2-3', et:'et2', text:'Existe grupo de trabalho intersetorial ou núcleo coordenador responsável pelo desenho?' },
+  { id:'d2-4', et:'et2', text:'Fizemos mapeamento de <em>stakeholders</em>: quem demanda, produz, usa, bloqueia, patrocina?' },
+  { id:'d2-5', et:'et2', text:'Temos previsão de recursos financeiros e humanos para sustentar o sistema — não só para fazer avaliações?' },
+  { id:'d2-6', et:'et2', text:'Estabelecemos parcerias estruturais com instituições de pesquisa (universidades, FAPs, fundações estaduais)?' },
+  { id:'d2-7', et:'et2', text:'Adotamos abordagem incremental — começando pequeno, com pilotos, antes de escalar?' },
+  // Etapa III
+  { id:'d3-1', et:'et3', text:'Existe instrumento normativo formal — lei, decreto, portaria — que institui o sistema?' },
+  { id:'d3-2', et:'et3', text:'A norma encontra equilíbrio entre clareza e flexibilidade — sem engessar nem ficar genérica demais?' },
+  { id:'d3-3', et:'et3', text:'A norma define atores, instâncias deliberativas e fluxos padronizados de avaliação?' },
+  { id:'d3-4', et:'et3', text:'Há integração formal com PPA, LOA, contratos de gestão?' },
+  { id:'d3-5', et:'et3', text:'A norma garante recursos previsíveis e mandatos claros para as unidades técnicas?' },
+  { id:'d3-6', et:'et3', text:'Pensamos no <em>enforcement</em> — quem fiscaliza, quem cobra, como se acompanha o cumprimento?' },
+  { id:'d3-7', et:'et3', text:'Articulamos a construção da norma com o Poder Legislativo, gerando legitimidade política?' },
+  // Etapa IV
+  { id:'d4-1', et:'et4', text:'Temos critérios claros para selecionar os programas a serem avaliados?' },
+  { id:'d4-2', et:'et4', text:'O processo de seleção é participativo — envolve gestores, equipes técnicas, sociedade civil?' },
+  { id:'d4-3', et:'et4', text:'As avaliações seguem critérios consolidados (OCDE/DAC, RELAC, RBMA ou referenciais próprios)?' },
+  { id:'d4-4', et:'et4', text:'Realizamos análise de avaliabilidade dos programas antes de iniciar a avaliação?' },
+  { id:'d4-5', et:'et4', text:'Quando contratamos avaliações externas, elaboramos Termos de Referência cuidadosos?' },
+  { id:'d4-6', et:'et4', text:'Existem mecanismos de validação técnica (comitês, revisão por pares, pareceres externos)?' },
+  { id:'d4-7', et:'et4', text:'Existem rotinas formais de devolutiva — apresentação aos gestores, sumários, espaços de diálogo?' },
+  { id:'d4-8', et:'et4', text:'Os primeiros ciclos foram tratados como pilotos, com espaço para ajuste a partir do aprendizado?' },
+  // Etapa V
+  { id:'d5-1', et:'et5', text:'As avaliações respondem perguntas relevantes para quem decide — não apenas tecnicamente interessantes?' },
+  { id:'d5-2', et:'et5', text:'Os resultados chegam em tempo hábil para influenciar decisões (orçamento, revisão de política)?' },
+  { id:'d5-3', et:'et5', text:'Comunicamos os resultados em formatos acessíveis — sumários, painéis, <em>one-page reports</em>?' },
+  { id:'d5-4', et:'et5', text:'Cada avaliação gera um plano de ação formal, com responsáveis, prazos e entregas?' },
+  { id:'d5-5', et:'et5', text:'A implementação das recomendações é acompanhada ao longo do tempo, não apenas registrada uma vez?' },
+  { id:'d5-6', et:'et5', text:'Existem incentivos institucionais ao uso — vinculação ao orçamento, prestação de contas, reconhecimento?' },
+  { id:'d5-7', et:'et5', text:'Cultivamos cultura avaliativa — formação continuada, redes de prática, lideranças que defendem evidências?' },
+  { id:'d5-8', et:'et5', text:'O sistema tem ancoragem institucional suficiente para sobreviver a transições políticas?' },
+];
+
+/* ─────────────────────────────────────────────────────────────────
+   REGRAS DE ALERTA
+   ───────────────────────────────────────────────────────────────── */
+
+const RULES = [
+  {
+    id:'r-diag-vazio', sev:'crit',
+    test: s => s.et1.answered === 0 && (s.et2.answered > 0 || s.et3.answered > 0),
+    title:'Construindo sem ter diagnosticado',
+    body: () => 'Você respondeu perguntas das etapas de desenho ou normativo, mas não respondeu nada na etapa I (Diagnóstico). O Guia trata o diagnóstico como ponto de partida — sem ele, decisões de desenho podem responder a um problema que ainda não foi formulado.',
+    ref: 'Etapa I — Diagnóstico'
+  },
+  {
+    id:'r-implementa-sem-norma', sev:'warn',
+    test: s => s.et4.pct !== null && s.et4.pct >= 50 && s.et3.pct !== null && s.et3.pct < 30,
+    title:'Implementação rodando sem ancoragem normativa',
+    body: () => 'Sua implementação aparece em estágio avançado, mas o arranjo normativo está pouco consolidado. O Guia (cap. III) lembra que sistemas sem base legal são vulneráveis a descontinuidades políticas — a experiência sul-africana, por exemplo, formalizou o sistema só depois de 4 a 5 anos rodando, justamente quando se percebeu o risco.',
+    ref: 'Etapa III — Arranjo normativo'
+  },
+  {
+    id:'r-uso-fraco', sev:'crit',
+    test: s => s.et5.pct !== null && s.et5.pct < 30 && (s.et2.pct || 0) + (s.et4.pct || 0) > 80,
+    title:'Risco de sistema de fachada',
+    body: () => 'O sistema parece desenhado e em funcionamento, mas o uso das evidências aparece como fragilidade central. O Guia (cap. V) cita Mackay (2007) e Leeuw &amp; Furubo (2008): um sistema sem demanda real por evidências tende a virar arranjo funcional no papel e irrelevante na prática. <strong>Resolver o uso é, possivelmente, sua prioridade nº 1.</strong>',
+    ref: 'Etapa V — Uso e consolidação'
+  },
+  {
+    id:'r-desenho-fraco', sev:'warn',
+    test: s => s.et2.pct !== null && s.et2.pct < 30 && s.et1.pct !== null && s.et1.pct >= 50,
+    title:'Diagnóstico feito, desenho ainda em aberto',
+    body: () => 'Há clareza sobre o ponto de partida, mas o desenho do sistema ainda não foi suficientemente definido. Esse é o momento de constituir um grupo de trabalho intersetorial, mapear <em>stakeholders</em> e fazer a análise de avaliabilidade dos primeiros programas candidatos a avaliação.',
+    ref: 'Etapa II — Desenho'
+  },
+  {
+    id:'r-tudo-baixo', sev:'info',
+    test: s => {
+      const pcts = Object.values(s).map(b => b.pct).filter(p => p !== null);
+      if (pcts.length === 0) return false;
+      const avg = pcts.reduce((a,b) => a+b, 0) / pcts.length;
+      return avg < 25;
+    },
+    title:'Você está no começo da jornada — e isso é bom',
+    body: () => 'A maioria das respostas indica que pouca coisa está consolidada ainda. O Guia é categórico: <em>não comece ambicioso</em>. Inicie com poucas avaliações, um grupo de coordenação ativo, e use os primeiros ciclos como pilotos para aprender. O caminho é gradual e não-linear.',
+    ref: 'Reflexões sobre o processo'
+  },
+  {
+    id:'r-tudo-alto', sev:'good',
+    test: s => {
+      const pcts = Object.values(s).map(b => b.pct).filter(p => p !== null);
+      if (pcts.length < 4) return false;
+      return pcts.every(p => p >= 65);
+    },
+    title:'Sistema com bom nível de consolidação',
+    body: () => 'Suas respostas indicam um sistema com elementos significativos em todas as etapas. O foco agora pode ser <strong>sustentar e aprofundar</strong>: capacidades técnicas, integração com orçamento, e mecanismos para que recomendações se traduzam em ação concreta.',
+    ref: 'Reflexões sobre o processo'
+  },
+  {
+    id:'r-buraco-uso', sev:'warn',
+    test: s => { const b = s.et5; return b.answered >= 3 && b.no > b.ok; },
+    title:'Recomendações sem acompanhamento',
+    body: () => 'Várias respostas em "Ainda não" na etapa de uso. O Guia destaca casos como Costa Rica e Chile, em que planos de ação formais e acompanhamento das recomendações ao longo do tempo transformam avaliação em mudança de política — sem isso, o uso fica simbólico.',
+    ref: 'Etapa V — Uso e consolidação'
+  },
+  {
+    id:'r-norma-isolada', sev:'info',
+    test: s => s.et3.pct !== null && s.et3.pct >= 60 && s.et4.answered >= 2 && s.et4.pct < 30,
+    title:'Norma sem prática',
+    body: () => 'Há base normativa estabelecida, mas a implementação parece pouco avançada. O Guia alerta para o risco do <em>formalismo</em>: leis e decretos por si sós não geram avaliações. Vale verificar se o orçamento, as unidades técnicas e os fluxos previstos na norma estão de fato em operação.',
+    ref: 'Etapa III — Arranjo normativo'
+  },
+  {
+    id:'r-em-construcao', sev:'info',
+    test: s => {
+      let mid = 0, tot = 0;
+      Object.values(s).forEach(b => { mid += b.mid; tot += b.ok + b.mid + b.no; });
+      return tot >= 8 && mid / tot >= 0.5;
+    },
+    title:'Muita coisa em construção ao mesmo tempo',
+    body: () => 'Mais da metade das suas respostas está em "Em construção". É sinal de movimento — mas também de risco de dispersão. O Guia recomenda <strong>priorizar finalidades realistas</strong> e consolidar aprendizados antes de expandir escopo.',
+    ref: 'Reflexões sobre o processo'
+  }
+];
+
+/* ─────────────────────────────────────────────────────────────────
+   ESTADO + PERSISTÊNCIA
+   ───────────────────────────────────────────────────────────────── */
+
+const STORAGE_KEY = 'clear-checklist-ma-v2';
+let state = loadState();
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { answers:{}, notes:{}, general:'' };
+    const p = JSON.parse(raw);
+    return { answers: p.answers || {}, notes: p.notes || {}, general: p.general || '' };
+  } catch { return { answers:{}, notes:{}, general:'' }; }
+}
+
+let saveT;
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    flashSaved();
+  } catch (e) { console.warn(e); }
+}
+
+function flashSaved() {
+  const el = document.getElementById('save-indicator');
+  el.classList.add('visible');
+  clearTimeout(saveT);
+  saveT = setTimeout(() => el.classList.remove('visible'), 1100);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   RENDER DA ABA DE DIAGNÓSTICO
+   ───────────────────────────────────────────────────────────────── */
+
+function renderQuestions() {
+  const area = document.getElementById('questions-area');
+  let html = '';
+  ETAPAS.forEach(et => {
+    const qs = PERGUNTAS.filter(p => p.et === et.id);
+    html += `<div class="bloco">
+      <div class="bloco-header">
+        <div class="bloco-num">${et.num}.</div>
+        <div>
+          <div class="bloco-title">${et.nome}</div>
+          <div class="bloco-subtitle">${et.sub}</div>
+        </div>
+      </div>`;
+    qs.forEach(q => {
+      const note = state.notes[q.id] || '';
+      const ans = state.answers[q.id];
+      html += `<div class="question${ans ? ' answered' : ''}" data-qid="${q.id}">
+        <div class="q-top">
+          <span class="q-id">${q.id.toUpperCase()}</span>
+          <div class="q-text">${q.text}</div>
+        </div>
+        <div class="q-options">
+          ${['ok','mid','no','na'].map(st => `
+            <button class="opt ${ans===st?'sel-'+st:''}" data-qid="${q.id}" data-st="${st}">
+              ${st==='ok'?'Já temos':st==='mid'?'Em construção':st==='no'?'Ainda não':'Não se aplica'}
+            </button>
+          `).join('')}
+        </div>
+        <div class="q-note"><textarea data-qid="${q.id}" placeholder="Anotação opcional sobre essa pergunta">${note}</textarea></div>
+      </div>`;
+    });
+    html += `</div>`;
+  });
+  area.innerHTML = html;
+
+  // events
+  area.querySelectorAll('.opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const qid = btn.dataset.qid;
+      const st = btn.dataset.st;
+      if (state.answers[qid] === st) delete state.answers[qid];
+      else state.answers[qid] = st;
+      saveState();
+      refreshQuestion(qid);
+      renderResult();
+    });
+  });
+
+  area.querySelectorAll('.q-note textarea').forEach(ta => {
+    ta.addEventListener('input', debounce(() => {
+      const v = ta.value.trim();
+      if (v) state.notes[ta.dataset.qid] = ta.value;
+      else delete state.notes[ta.dataset.qid];
+      saveState();
+    }, 500));
+  });
+}
+
+function refreshQuestion(qid) {
+  const q = document.querySelector(`.question[data-qid="${qid}"]`);
+  if (!q) return;
+  const ans = state.answers[qid];
+  q.classList.toggle('answered', !!ans);
+  q.querySelectorAll('.opt').forEach(b => {
+    b.className = 'opt' + (ans === b.dataset.st ? ' sel-' + b.dataset.st : '');
+  });
+}
+
+function debounce(fn, ms) {
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   SCORING
+   ───────────────────────────────────────────────────────────────── */
+
+function computeScores() {
+  const s = {};
+  ETAPAS.forEach(et => {
+    s[et.id] = { ok:0, mid:0, no:0, na:0, total:0, answered:0, pct:null };
+  });
+  PERGUNTAS.forEach(p => {
+    s[p.et].total++;
+    const a = state.answers[p.id];
+    if (a) {
+      s[p.et][a]++;
+      s[p.et].answered++;
+    }
+  });
+  Object.keys(s).forEach(k => {
+    const b = s[k];
+    const considered = b.ok + b.mid + b.no; // exclui NA
+    if (considered > 0) b.pct = Math.round(((b.ok*1 + b.mid*0.5) / considered) * 100);
+  });
+  return s;
+}
+
+function renderResult() {
+  const scores = computeScores();
+  const totalAns = Object.keys(state.answers).length;
+  document.getElementById('answered-count').textContent = `${totalAns} de ${PERGUNTAS.length} perguntas respondidas`;
+
+  // progress bar
+  document.getElementById('progress-fill').style.width = `${(totalAns / PERGUNTAS.length) * 100}%`;
+
+  // result cards
+  const grid = document.getElementById('result-grid');
+  grid.innerHTML = ETAPAS.map(et => {
+    const b = scores[et.id];
+    const pct = b.pct;
+    const display = pct === null ? '—' : `${pct}%`;
+    return `<div class="result-card ${et.id}">
+      <div class="rc-tipo">Etapa ${et.num}</div>
+      <div class="rc-name">${et.nome}</div>
+      <div class="rc-bar-bg"><div class="rc-bar-fill" style="width:${pct === null ? 0 : pct}%"></div></div>
+      <div class="rc-pct">${display}</div>
+      <div class="rc-detail">${b.answered} de ${b.total} respondidas</div>
+    </div>`;
+  }).join('');
+
+  // alerts
+  const alerts = RULES.filter(r => { try { return r.test(scores); } catch { return false; }});
+  const box = document.getElementById('alerts-box');
+  if (totalAns === 0) {
+    box.innerHTML = `<div class="alerts-empty">Responda algumas perguntas para ver os pontos de atenção do seu sistema.</div>`;
+  } else if (alerts.length === 0) {
+    box.innerHTML = `<div class="alerts-empty">Nenhum ponto de atenção identificado pelas regras automáticas. Releia suas anotações por etapa — elas guardam as nuances mais importantes.</div>`;
+  } else {
+    box.innerHTML = alerts.map(a => `
+      <div class="alert ${a.sev}">
+        <div class="alert-label">${labelFor(a.sev)}</div>
+        <h4>${a.title}</h4>
+        <p>${a.body(scores)}</p>
+        <div class="alert-ref">Referência: ${a.ref}</div>
+      </div>
+    `).join('');
+  }
+}
+
+function labelFor(sev) {
+  return { crit:'Atenção crítica', warn:'Ponto de atenção', info:'Para reflexão', good:'Está indo bem' }[sev] || 'Observação';
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   TABS
+   ───────────────────────────────────────────────────────────────── */
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   AÇÕES (print, export, clear)
+   ───────────────────────────────────────────────────────────────── */
+
+function clearAll() {
+  if (!confirm('Apagar todas as respostas e anotações deste diagnóstico? Esta ação não pode ser desfeita.')) return;
+  state = { answers:{}, notes:{}, general:'' };
+  localStorage.removeItem(STORAGE_KEY);
+  document.getElementById('general-notes').value = '';
+  renderQuestions();
+  renderResult();
+}
+
+function exportMarkdown() {
+  const scores = computeScores();
+  const alerts = RULES.filter(r => { try { return r.test(scores); } catch { return false; }});
+  const today = new Date().toLocaleDateString('pt-BR');
+
+  const lines = [];
+  lines.push('# Diagnóstico do meu sistema de M&A');
+  lines.push('');
+  lines.push(`*Gerado em ${today}. Checklist FGV CLEAR de construção de sistemas de M&A subnacionais.*`);
+  lines.push('');
+  lines.push('---');
+  lines.push('');
+  lines.push('## Pontuação por etapa');
+  lines.push('');
+  ETAPAS.forEach(et => {
+    const b = scores[et.id];
+    const pct = b.pct === null ? '—' : `${b.pct}%`;
+    lines.push(`- **${et.num}. ${et.nome}** — ${pct}  *(${b.ok} consolidadas · ${b.mid} em construção · ${b.no} ausentes · ${b.na} N/A · de ${b.total} totais)*`);
+  });
+  lines.push('');
+
+  if (alerts.length > 0) {
+    lines.push('## Pontos de atenção');
+    lines.push('');
+    alerts.forEach(a => {
+      lines.push(`### ${labelFor(a.sev)}: ${a.title}`);
+      lines.push('');
+      lines.push(a.body(scores).replace(/<[^>]+>/g, ''));
+      lines.push('');
+      lines.push(`*Referência: ${a.ref}*`);
+      lines.push('');
+    });
+  }
+
+  const notedIds = Object.keys(state.notes);
+  if (notedIds.length > 0) {
+    lines.push('## Anotações por pergunta');
+    lines.push('');
+    notedIds.forEach(qid => {
+      const p = PERGUNTAS.find(p => p.id === qid);
+      if (!p) return;
+      lines.push(`**${p.text.replace(/<[^>]+>/g, '')}**`);
+      lines.push('');
+      lines.push(`> ${state.notes[qid].replace(/\n/g, '\n> ')}`);
+      lines.push('');
+    });
+  }
+
+  if (state.general && state.general.trim()) {
+    lines.push('## Anotações gerais');
+    lines.push('');
+    lines.push(state.general);
+    lines.push('');
+  }
+
+  lines.push('---');
+  lines.push('');
+  lines.push('*Derivado do Guia FGV CLEAR de construção de sistemas de M&A de políticas públicas (FGV CLEAR, 2026).*');
+  lines.push('*Convênio FGV CLEAR · TCE-ES nº 00017/2024-4C.*');
+
+  const blob = new Blob([lines.join('\n')], { type:'text/markdown;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const d = new Date();
+  a.download = `diagnostico-ma-${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}.md`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   INIT
+   ───────────────────────────────────────────────────────────────── */
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderQuestions();
+  renderResult();
+
+  const gen = document.getElementById('general-notes');
+  gen.value = state.general;
+  gen.addEventListener('input', debounce(() => {
+    state.general = gen.value;
+    saveState();
+  }, 500));
+
+  document.getElementById('btn-print').addEventListener('click', () => window.print());
+  document.getElementById('btn-export').addEventListener('click', exportMarkdown);
+  document.getElementById('btn-clear').addEventListener('click', clearAll);
+});
+</script>
 </body>
 </html>
